@@ -1,0 +1,6 @@
+{
+  "appId": "com.coach.app",
+  "appName": "Globe Sports Fusion",
+  "webDir": "mobile-dist",
+  "bundledWebRuntime": false
+}

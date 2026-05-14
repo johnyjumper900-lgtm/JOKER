@@ -1,0 +1,337 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-glow: hsl(var(--primary-glow));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-gold: hsl(var(--gold));
+  --color-gold-foreground: hsl(var(--gold-foreground));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+}
+
+:root {
+  --background: 40 30% 5%;
+  --foreground: 45 80% 92%;
+  --card: 40 25% 8%;
+  --card-foreground: 45 80% 92%;
+  --popover: 40 25% 7%;
+  --popover-foreground: 45 80% 92%;
+  --primary: 45 100% 55%;
+  --primary-foreground: 40 30% 5%;
+  --primary-glow: 48 100% 70%;
+  --secondary: 38 90% 50%;
+  --secondary-foreground: 40 30% 5%;
+  --accent: 50 100% 60%;
+  --accent-foreground: 40 30% 5%;
+  --gold: 45 100% 60%;
+  --gold-foreground: 40 30% 5%;
+  --muted: 40 20% 14%;
+  --muted-foreground: 45 25% 65%;
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 145 80% 50%;
+  --warning: 38 95% 58%;
+  --border: 45 40% 22%;
+  --input: 40 25% 14%;
+  --ring: 45 100% 55%;
+  --radius: 1rem;
+
+  --gradient-prism: linear-gradient(135deg, hsl(45 100% 55%) 0%, hsl(38 90% 50%) 50%, hsl(50 100% 65%) 100%);
+  --gradient-iridescent: conic-gradient(from 180deg at 50% 50%, hsl(45 100% 55%) 0deg, hsl(38 90% 50%) 90deg, hsl(50 100% 65%) 180deg, hsl(42 95% 45%) 270deg, hsl(45 100% 55%) 360deg);
+  --gradient-aurora: radial-gradient(ellipse at top, hsl(45 100% 55% / 0.4) 0%, transparent 50%), radial-gradient(ellipse at bottom, hsl(38 90% 50% / 0.35) 0%, transparent 50%);
+
+  --shadow-holo: 0 0 20px hsl(45 100% 55% / 0.5), 0 0 40px hsl(38 90% 50% / 0.3), 0 0 80px hsl(50 100% 65% / 0.2);
+  --shadow-glow-cyan: 0 0 24px hsl(45 100% 55% / 0.6);
+  --shadow-glow-violet: 0 0 24px hsl(38 90% 50% / 0.6);
+  --shadow-glow-magenta: 0 0 24px hsl(50 100% 65% / 0.6);
+  --shadow-glow-gold: 0 0 24px hsl(45 100% 60% / 0.6);
+
+  --sidebar-background: 40 25% 7%;
+  --sidebar-foreground: 45 80% 92%;
+  --sidebar-primary: 45 100% 55%;
+  --sidebar-primary-foreground: 40 30% 5%;
+  --sidebar-accent: 40 25% 14%;
+  --sidebar-accent-foreground: 45 80% 92%;
+  --sidebar-border: 45 40% 22%;
+  --sidebar-ring: 45 100% 55%;
+}
+
+html { color-scheme: dark; }
+
+* { border-color: hsl(var(--border)); }
+
+html, body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow-x: hidden;
+  width: 100%;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% -10%, hsl(45 100% 35% / 0.65), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 100%, hsl(38 90% 30% / 0.55), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 0% 80%, hsl(50 100% 35% / 0.5), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, hsl(45 100% 25% / 0.25), transparent 70%);
+  background-attachment: fixed;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+#root { min-height: 100dvh; width: 100%; overflow-x: hidden; }
+img, video, canvas, svg { max-width: 100%; height: auto; }
+input, textarea, select { font-size: 16px; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: hsl(var(--primary) / 0.4); border-radius: 3px; }
+
+.glass {
+  background: hsl(var(--card) / 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid hsl(var(--border) / 0.6);
+}
+.glass-strong {
+  background: hsl(var(--card) / 0.85);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid hsl(var(--primary) / 0.35);
+}
+.bg-iridescent { background: var(--gradient-iridescent); }
+.bg-gradient-prism { background: var(--gradient-prism); }
+.bg-gradient-holo { background-image: var(--gradient-prism); }
+.bg-gradient-holo-soft {
+  background-image: linear-gradient(135deg, hsl(188 100% 55% / 0.25) 0%, hsl(270 95% 65% / 0.25) 50%, hsl(320 100% 62% / 0.25) 100%);
+}
+.bg-gradient-iridescent { background-image: var(--gradient-iridescent); }
+.bg-gradient-aurora { background-image: var(--gradient-aurora); }
+.bg-aurora { background: var(--gradient-aurora); }
+
+.holo-scan { position: relative; }
+.holo-scan::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 0%, hsl(var(--primary) / 0.12) 50%, transparent 100%);
+  background-size: 100% 200%;
+  animation: holo-scan 3.5s linear infinite;
+  pointer-events: none; border-radius: inherit;
+}
+.holo-text {
+  background-image: var(--gradient-prism);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.holo-border {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px hsl(var(--primary) / 0.4), 0 0 18px hsl(var(--primary) / 0.25);
+}
+
+.text-glow-cyan { text-shadow: 0 0 8px hsl(var(--primary) / 0.8), 0 0 18px hsl(var(--primary) / 0.5); }
+.text-glow-violet { text-shadow: 0 0 8px hsl(var(--secondary) / 0.8), 0 0 18px hsl(var(--secondary) / 0.5); }
+.text-glow-magenta { text-shadow: 0 0 8px hsl(var(--accent) / 0.8), 0 0 18px hsl(var(--accent) / 0.5); }
+.text-glow-gold { text-shadow: 0 0 8px hsl(var(--gold) / 0.8), 0 0 18px hsl(var(--gold) / 0.5); }
+
+.shadow-holo { box-shadow: var(--shadow-holo); }
+.shadow-glow-cyan { box-shadow: var(--shadow-glow-cyan); }
+.shadow-glow-violet { box-shadow: var(--shadow-glow-violet); }
+.shadow-glow-magenta { box-shadow: var(--shadow-glow-magenta); }
+.shadow-glow-gold { box-shadow: var(--shadow-glow-gold); }
+
+.tap { transition: transform .15s ease, opacity .15s ease; -webkit-tap-highlight-color: transparent; }
+.tap:active { transform: scale(0.96); }
+
+.pt-safe { padding-top: env(safe-area-inset-top); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+.pl-safe { padding-left: env(safe-area-inset-left); }
+.pr-safe { padding-right: env(safe-area-inset-right); }
+.px-safe { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+.py-safe { padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom); }
+
+.min-h-screen-dvh { min-height: 100vh; min-height: 100dvh; }
+.h-screen-dvh { height: 100vh; height: 100dvh; }
+
+.font-display {
+  font-family: ui-sans-serif, system-ui, -apple-system, "SF Pro Display", "Segoe UI", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.safe-x { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(18px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(18px) rotate(-360deg); }
+}
+@keyframes holo-scan {
+  0% { background-position: 0% -100%; }
+  100% { background-position: 0% 200%; }
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-orbit { animation: orbit 8s linear infinite; }
+.animate-shimmer { animation: shimmer 2.5s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
+/* iPhone / PWA optimisations */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+.ios-scroll { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.iphone-tight { width: 100%; }
+.iphone-bottom-pad { padding-bottom: max(env(safe-area-inset-bottom), 1rem); }
+
+html, body { overscroll-behavior-y: none; }
+body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
+
+/* Mode paysage iPhone — adaptation intelligente (pas de blocage).
+   On compacte les paddings et on autorise le scroll horizontal interne. */
+@media screen and (orientation: landscape) and (max-device-width: 932px) and (hover: none) and (pointer: coarse) {
+  html, body { height: 100vh; height: 100dvh; }
+  body {
+    padding-left: max(env(safe-area-inset-left), 12px);
+    padding-right: max(env(safe-area-inset-right), 12px);
+  }
+  /* Réduit la hauteur des héros pour laisser de la place au contenu */
+  .hero-compact-landscape { max-height: 40vh; }
+}
+
+/* iPhone 13 Pro Max safe-area tuning (Dynamic notch + home indicator) */
+@supports (padding: max(0px)) {
+  .safe-top { padding-top: max(env(safe-area-inset-top), 12px); }
+  .safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 12px); }
+}
+
+/* iPhone 13 Pro Max — 428x926 @3x (et 14/15 Pro Max 430x932)
+   - Notch top ≈ 47px, home indicator ≈ 34px
+   - Tap target mini 44px (HIG)
+   - Empêche le zoom iOS sur les inputs (font-size ≥ 16px) */
+@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+  .safe-top { padding-top: max(env(safe-area-inset-top), 47px); }
+  .safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 34px); }
+  button, [role="button"], a.tap { min-height: 44px; }
+  input, select, textarea { font-size: 16px !important; }
+}
+
+/* PWA standalone (ajoutée à l'écran d'accueil) */
+@media all and (display-mode: standalone) {
+  html, body { height: 100vh; height: 100dvh; }
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    overscroll-behavior-y: contain; /* désactive pull-to-refresh natif */
+  }
+}
+
+@keyframes voice-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+}
+.animate-voice-pulse { animation: voice-pulse 1.4s ease-in-out infinite; }
+
+/* === Globe terrestre en arrière-plan des modules ===
+   Appliquée au <main> ou aux conteneurs de tab. Effet transparent doux. */
+.module-globe-bg::before {
+  content: "";
+  position: fixed;
+  inset: 148px 0 0 0;
+  background-image: radial-gradient(
+    circle at 50% 45%,
+    rgba(34, 227, 255, 0.10) 0%,
+    rgba(34, 227, 255, 0.04) 30%,
+    transparent 65%
+  ),
+  url("/icon-512.png");
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  background-size: 90vw auto;
+  opacity: 0.10;
+  filter: blur(0.5px) saturate(140%);
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 35%, black 40%, transparent 80%);
+          mask-image: radial-gradient(ellipse at 50% 35%, black 40%, transparent 80%);
+}
+.module-globe-bg > * { position: relative; z-index: 1; }
+
+/* Variante "transparente" pour les modales d'info match */
+.match-globe-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(34, 227, 255, 0.18) 0%,
+    rgba(34, 227, 255, 0.06) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+  opacity: 0.65;
+  mix-blend-mode: screen;
+}
+
+/* PWA iPhone 13 Pro Max — Optimisations supplémentaires */
+@media all and (display-mode: standalone) {
+  /* Empêche le rebond élastique iOS sur le scroll global */
+  html { position: fixed; width: 100%; height: 100%; overflow: hidden; }
+  body { position: relative; width: 100%; height: 100%; overflow: auto;
+         -webkit-overflow-scrolling: touch; }
+  /* Pas de tap-highlight bleu */
+  * { -webkit-tap-highlight-color: transparent; }
+}
